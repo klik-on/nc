@@ -20,7 +20,7 @@ echo "upload_max_filesize=1024M" > nextcloud.ini
 echo "post_max_size=1024M" >> nextcloud.ini
 echo "memory_limit=1G" >> nextcloud.ini
 
-inet ssh nc@172.16.2.130 =: webgis.menlhk.go.id p: ipsdh2022
+inet ssh nc@172.16.2.130 =: webgis.menlhk.go.id p: ipsdh2022 ==> /home/nc/nc/*.tar
 u : pdbs
 p : blok1lantai7
 
