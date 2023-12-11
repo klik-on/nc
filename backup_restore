@@ -28,6 +28,10 @@ docker run --rm --volumes-from nc-app-1 -v $(pwd):/backup ubuntu tar cvf /backup
 3. Backup Nextcloud Configuration:
 Lastly, run the command below:
 docker run --rm --volumes-from nc-app-1 -v $(pwd):/backup ubuntu tar cvf /backup/backupconfig.tar -C /var/www/html/config .
+$ ls -l *.tar
+-rw-r--r-- 1 root root    102400 Dec 11 09:40 backupconfig.tar
+-rw-r--r-- 1 root root  41820160 Dec 11 09:40 backupdata.tar
+-rw-r--r-- 1 root root 236912640 Dec 11 09:38 backup.tar
 
 $ docker compose down -v
 $ docker container ls -a
