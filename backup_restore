@@ -1,0 +1,41 @@
+https://bookstack.elzim.xyz/books/self-hosting/page/backup-docker-volumes-nextcloud-example
+#### BACKUP
+1. Backup Nextcloud Database:
+Run the following command in your terminal:
+
+docker run --rm --volumes-from nextcloud-db-1 -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar -C /var/lib/mysql .
+
+
+2. Backup Nextcloud Data:
+Run this command next:
+
+docker run --rm --volumes-from nextcloud-app-1 -v $(pwd):/backup ubuntu tar cvf /backup/backupdata.tar -C /var/www/htm
+l/data .
+
+
+3. Backup Nextcloud Configuration:
+Lastly, run the command below:
+
+docker run --rm --volumes-from nextcloud-app-1 -v $(pwd):/backup ubuntu tar cvf /backup/backupconfig.tar -C /var/www/h
+tml/config .
+
+
+##### RESTORE
+1. Restore Nextcloud Database:
+Execute the following command:
+
+docker run --rm --volumes-from nextcloud-db-1 -v $(pwd):/backup ubuntu bash -c "cd /var/lib/mysql && tar xvf /backup/b
+ackup.tar"
+
+
+2. Restore Nextcloud Data:
+Use this command for data restoration:
+
+docker run --rm --volumes-from nextcloud-app-1 -v $(pwd):/backup ubuntu bash -c "cd /var/www/html/data && tar xvf /bac
+kup/backupdata.tar"
+
+
+3. Restore Nextcloud Configuration:
+Finally, execute this command:
+
+docker run --rm --volumes-from nextcloud-app-1 -v $(pwd):/backup ubuntu bash -c "cd /var/www/html/config && tar xvf /backup/backupconfig.tar"
