@@ -1,0 +1,33 @@
+25.0.13
+sudo docker exec --user www-data nc-app-1 php occ db:add-missing-indices
+docker exec -u www-data nc-app-1 php /var/www/html/occ db:add-missing-indices
+** optional sudo docker exec -u www-data nc-app-1  php /var/www/html/occ maintenance:mode --off
+docker compose down -v
+
+26.0.9 
+docker compose up -d
+docker exec -u www-data nc-app-1 php /var/www/html/occ db:add-missing-indices
+docker compose down -v
+
+27.1.4
+$ docker compose up -d 
+$ docker exec -u www-data nc-app-1 php /var/www/html/occ db:add-missing-indices
+Check indices of the share table.
+Check indices of the filecache table.
+Check indices of the twofactor_providers table.
+Check indices of the login_flow_v2 table.
+Check indices of the whats_new table.
+Check indices of the cards table.
+Check indices of the cards_properties table.
+Check indices of the calendarobjects_props table.
+Check indices of the schedulingobjects table.
+Check indices of the oc_properties table.
+Check indices of the oc_jobs table.
+Check indices of the oc_direct_edit table.
+Check indices of the oc_preferences table.
+Check indices of the oc_mounts table.
+Check indices of the oc_systemtag_object_mapping table.
+Done.
+Adding additional textstep_session index to the oc_text_steps table, this can take some time...
+oc_text_steps table updated successfully.
+
