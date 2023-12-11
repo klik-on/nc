@@ -12,6 +12,11 @@ https://bookstack.elzim.xyz/books/self-hosting/page/backup-docker-volumes-nextcl
 1. Backup Nextcloud Database:
 Run the following command in your terminal:
 docker run --rm --volumes-from nextcloud-db-1 -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar -C /var/lib/mysql .
+...
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+5e8117c0bd28: Pull complete
+
 2. Backup Nextcloud Data:
 Run this command next:
 docker run --rm --volumes-from nextcloud-app-1 -v $(pwd):/backup ubuntu tar cvf /backup/backupdata.tar -C /var/www/html/data .
