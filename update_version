@@ -9,12 +9,12 @@ docker exec --user www-data <container name> php occ app:list
 sudo docker exec --user www-data nc-app-1 php occ db:add-missing-indices
 docker exec -u www-data nc-app-1 php /var/www/html/occ db:add-missing-indices
 ** optional sudo docker exec -u www-data nc-app-1  php /var/www/html/occ maintenance:mode --off
-docker compose down -v
+docker compose down rm ==> kalau -v semua kehapus
 
 26.0.9 
 docker compose up -d
 docker exec -u www-data nc-app-1 php /var/www/html/occ db:add-missing-indices
-docker compose down -v
+docker compose down rm ==> kalau -v semua kehapus
 
 Nextcloud Hub 6 (27.1.4)
 $ docker compose up -d 
