@@ -5,3 +5,20 @@ IP      172.16.2.130
 DMN     webgis.menlhk.go.id
 useer nc
 pass    ipsdh2022
+
+### client_max_body_size 10G;
+vi /etc/nginx/sites-available/default
+location / {
+proxy_pass http://103.52.213.130:8080;
+add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;";
+client_max_body_size 10G;
+}
+
+$ docker exec -it optimistic_hermann /bin/bash
+# cd /usr/local/etc/php/conf.d
+echo "upload_max_filesize=1024M" > nextcloud.ini
+echo "post_max_size=1024M" >> nextcloud.ini
+echo "memory_limit=1G" >> nextcloud.ini
+
+u:admin
+p:ipsdh2022
