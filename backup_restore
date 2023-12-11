@@ -34,13 +34,28 @@ $ ls -l *.tar
 -rw-r--r-- 1 root root 236912640 Dec 11 09:38 backup.tar
 
 $ docker compose down -v
+[+] Running 5/5
+ ✔ Container nc-app-1   Removed                                                                                                                      1.4s
+ ✔ Container nc-db-1    Removed                                                                                                                      0.7s
+ ✔ Volume nc_nextcloud  Removed                                                                                                                      0.8s
+ ✔ Volume nc_db         Removed                                                                                                                      0.9s
+ ✔ Network nc_default   Removed  
+
 $ docker container ls -a
 $ docker volume ls
 
-
 ##### RESTORE
 $ docker compose up -d
+[+] Running 5/5
+ ✔ Network nc_default     Created                                                                                                                    0.1s
+ ✔ Volume "nc_db"         Created                                                                                                                    0.0s
+ ✔ Volume "nc_nextcloud"  Created                                                                                                                    0.0s
+ ✔ Container nc-db-1      Started                                                                                                                    0.0s
+ ✔ Container nc-app-1     Started
 $ docker compose stop
+[+] Stopping 2/2
+ ✔ Container nc-app-1  Stopped                                                                                                                       1.3s
+ ✔ Container nc-db-1   Stopped
 
 1. Restore Nextcloud Database:
 Execute the following command:
@@ -53,4 +68,6 @@ Finally, execute this command:
 docker run --rm --volumes-from nc-app-1 -v $(pwd):/backup ubuntu bash -c "cd /var/www/html/config && tar xvf /backup/backupconfig.tar"
 
 $ docker compose start
-
+[+] Running 2/2
+ ✔ Container nc-db-1   Started                                                                                                                       0.3s
+ ✔ Container nc-app-1  Started
