@@ -1,3 +1,8 @@
+# list users
+docker exec --user www-data <container name> php occ user:list
+# list apps
+docker exec --user www-data <container name> php occ app:list
+
 25.0.13
 sudo docker exec --user www-data nc-app-1 php occ db:add-missing-indices
 docker exec -u www-data nc-app-1 php /var/www/html/occ db:add-missing-indices
