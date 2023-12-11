@@ -34,3 +34,5 @@ docker run --rm --volumes-from nextcloud-app-1 -v $(pwd):/backup ubuntu bash -c 
 Finally, execute this command:
 docker run --rm --volumes-from nextcloud-app-1 -v $(pwd):/backup ubuntu bash -c "cd /var/www/html/config && tar xvf /backup/backupconfig.tar"
 
+$ docker compose start
+
