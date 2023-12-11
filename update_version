@@ -1,3 +1,5 @@
+chown -R www-data:www-data /var/www/html
+chmod -R 0750 /var/www/html
 # list users
 docker exec --user www-data <container name> php occ user:list
 # list apps
