@@ -2,6 +2,11 @@
 $ git clone https://github.com/klik-on/nc.git
 $ cd nc
 $ docker compose up -d
+ Network nc_default     Created 
+ Volume "nc_db"         Created        
+ Volume "nc_nextcloud"  Created
+ Container nc-db-1      Started
+ Container nc-app-1     Started
 http://IP/ ==> http://agsipsdh.ddns.net/
 u: admin
 p: ipsdh#2023
@@ -11,7 +16,7 @@ https://bookstack.elzim.xyz/books/self-hosting/page/backup-docker-volumes-nextcl
 #### BACKUP
 1. Backup Nextcloud Database:
 Run the following command in your terminal:
-docker run --rm --volumes-from nextcloud-db-1 -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar -C /var/lib/mysql .
+docker run --rm --volumes-from nc-db-1 -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar -C /var/lib/mysql .
 ...
 Unable to find image 'ubuntu:latest' locally
 latest: Pulling from library/ubuntu
@@ -19,10 +24,10 @@ latest: Pulling from library/ubuntu
 
 2. Backup Nextcloud Data:
 Run this command next:
-docker run --rm --volumes-from nextcloud-app-1 -v $(pwd):/backup ubuntu tar cvf /backup/backupdata.tar -C /var/www/html/data .
+docker run --rm --volumes-from nc-app-1 -v $(pwd):/backup ubuntu tar cvf /backup/backupdata.tar -C /var/www/html/data .
 3. Backup Nextcloud Configuration:
 Lastly, run the command below:
-docker run --rm --volumes-from nextcloud-app-1 -v $(pwd):/backup ubuntu tar cvf /backup/backupconfig.tar -C /var/www/html/config .
+docker run --rm --volumes-from nc-app-1 -v $(pwd):/backup ubuntu tar cvf /backup/backupconfig.tar -C /var/www/html/config .
 
 $ docker compose down -v
 $ docker container ls -a
