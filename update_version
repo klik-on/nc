@@ -16,7 +16,7 @@ docker compose up -d
 docker exec -u www-data nc-app-1 php /var/www/html/occ db:add-missing-indices
 docker compose down -v
 
-27.1.4
+Nextcloud Hub 6 (27.1.4)
 $ docker compose up -d 
 $ docker exec -u www-data nc-app-1 php /var/www/html/occ db:add-missing-indices
 Check indices of the share table.
