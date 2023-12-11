@@ -2,6 +2,7 @@
 $ git clone https://github.com/klik-on/nc.git
 $ cd nc
 $ docker compose up -d
+http://IP/ ==> http://agsipsdh.ddns.net/
 
 https://bookstack.elzim.xyz/books/self-hosting/page/backup-docker-volumes-nextcloud-example
 #### BACKUP
