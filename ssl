@@ -56,3 +56,27 @@ echo '
 a2enmod ssl >/dev/null
 a2ensite default-ssl >/dev/null
 a2enconf ssl-params >/dev/null
+
+
+#### REDIS
+I just looked it up on an Ubuntu test vm I have.
+    Install redis: apt install redis php-redis
+    Configure redis: /etc/redis/redis.conf
+unixsocket /var/run/redis/redis.sock
+unixsocketperm 660
+
+    Restart redis: systemctl restart redis
+    Add apache to the redis group: usermod -aG redis www-data
+    Add redis to your nextcloud configuration.
+
+'memcache.local' => '\\OC\\Memcache\\APCu',
+  'filelocking.enabled' => true,
+  'memcache.locking' => '\OC\Memcache\Redis',
+  'redis' => array(
+     'host' => '/var/run/redis/redis.sock',
+     'port' => 0,
+     'timeout' => 0.0,
+      ),
+
+    Done since it doesn’t look like Ubuntu use php-fpm.
+
