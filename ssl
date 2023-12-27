@@ -8,6 +8,10 @@ Successfully copied 7.68kB to nc-app-1:/
 $ docker cp setssl.sh nc-app-1:/usr/local/bin/setssl.sh
 Successfully copied 3.07kB to nc-app-1:/usr/local/bin/setssl.sh
 
+$ docker exec -it nc-app-1 /bin/bash
+root@aa90eed00207:/var/www/html# chmod +x /usr/local/bin/setssl.sh
+# setssl.sh admin@ddns.net agsipsdh.ddns.net
+
 $ cat Dockerfile
 FROM nextcloud:apache
 COPY setssl.sh /usr/local/bin/
