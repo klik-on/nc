@@ -5,6 +5,17 @@ docker exec --user www-data <container name> php occ user:list
 # list apps
 docker exec --user www-data <container name> php occ app:list
 
+Update needed ==>
+Please use the command line updater because updating via browser is disabled in your config.php.
+$ sudo docker exec --user www-data nc-app-1 php occ upgrade
+
+Starting code integrity check...
+Finished code integrity check
+Update successful
+Turned off maintenance mode
+Resetting log level
+
+
 25.0.13
 sudo docker exec --user www-data nc-app-1 php occ db:add-missing-indices
 docker exec -u www-data nc-app-1 php /var/www/html/occ db:add-missing-indices
