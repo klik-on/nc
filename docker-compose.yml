@@ -28,6 +28,7 @@ services:
       - db
     volumes:
       - nextcloud:/var/www/html
+      - ./etc/ssl/nextcloud:/etc/ssl/nextcloud 
     environment:
       - MYSQL_PASSWORD=ipsdh#2023
       - MYSQL_DATABASE=nextcloud
