@@ -1,3 +1,21 @@
+Install docker
+# usermod -aG sudo ags
+$ sudo apt update && sudo apt upgrade -y
+$ sudo apt install curl
+$ sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr.local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+$ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+$ sudo apt install docker.io
+$ sudo usermod -aG docker ags
+$ groups
+$ su
+$ docker-compose --version
+$ docker --version
+$ git clone https://github.com/ichiTechs/Dockerized-SSL-NextCloud-with-MariaDB
+$ docker networks ls
+$ docker network create nginx-proxy
+
+############
 chown -R www-data:www-data /var/www/html
 chmod -R 0750 /var/www/html
 # list users
