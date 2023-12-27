@@ -18,10 +18,12 @@ services:
       - MYSQL_USER=nextcloud
 
   app:
-    image: nextcloud
+    # image: nextcloud:26.0
+    build: .
     restart: always
     ports:
       - 80:80
+      - 443:443
     links:
       - db
     volumes:
