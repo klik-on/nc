@@ -10,6 +10,10 @@ RUN set -ex; \
     apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false $fetchDeps; \
     rm -rf /var/lib/apt/lists/*
     
-RUN  docker-php-ext-install bz2
+RUN docker-php-ext-install bz2
 COPY setssl.sh /usr/local/bin/
-RUN /usr/local/bin/setssl.sh admin@ddns.net agsipsdh.ddns.net
+
+RUN set -ex; \
+    \
+    chmod +x /usr/local/bin/setssl.sh; \
+    /usr/local/bin/setssl.sh admin@ddns.net agsipsdh.ddns.net
