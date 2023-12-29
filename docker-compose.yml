@@ -31,6 +31,9 @@ services:
       - MYSQL_HOST=db
       - REDIS_HOST=redis
       - TZ=Asia/Jakarta
+      - PHP_UPLOAD_LIMIT=8G
+      - PHP_MEMORY_LIMIT=8G
+      - POST_MAX_SIZE=8G
     env_file:
       - db.env
     depends_on:
