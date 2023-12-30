@@ -11,4 +11,13 @@ docker exec nc_app_1 bash -c 'chown -R root:root /usr/local/bin/setssh.sh'
 docker exec nc_app_1 bash -c 'chmod +x /usr/local/bin/setssh.sh'
 docker exec nc_app_1 bash -c '/usr/local/bin/setssh.sh dbgis@menlhk.go.id dbgis.menlhk.go.id'
 
+# Fix Log since
+docker exec nc_app_1 bash -c "truncate /var/www/html/data/nextcloud.log --size 0"
+
+# https://techoverflow.net/?s=nextcloud
+# sudo -u www-data php occ config:system:set default_phone_region --type string --value="ID"
+# docker-compose exec -u www-data nc_app_1 php occ config:system:set default_phone_region --type string --value="ID"
+# nano /var/www/html/config/config.php
+# 'default_phone_region' => 'ID',
+
 docker restart nc_app_1
