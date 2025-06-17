@@ -20,12 +20,20 @@ chown -R www-data:www-data /var/www/html
 chmod -R 0750 /var/www/html
 # list users
 docker exec --user www-data <container name> php occ user:list
+$ sudo docker exec --user www-data nc_app_1 php occ user:list
+  - admin: admin
+  - umum: UMUM LHK
+
 # list apps
 docker exec --user www-data <container name> php occ app:list
+$ sudo docker exec --user www-data nc_app_1 php occ app:list
+Enabled:
+  - activity: 2.20.0
+  - calendar: 4.6.4
 
 Update needed ==>
 Please use the command line updater because updating via browser is disabled in your config.php.
-$ sudo docker exec --user www-data nc-app-1 php occ upgrade
+$ sudo docker exec --user www-data nc_app_1 php occ upgrade
 
 Starting code integrity check...
 Finished code integrity check
